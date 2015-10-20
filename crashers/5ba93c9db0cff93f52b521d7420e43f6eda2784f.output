@@ -1,0 +1,45 @@
+program hanged (timeout 10 seconds)
+
+SIGABRT: abort
+PC=0x51822 m=0
+
+goroutine 1 [running]:
+github.com/rasky/go-lzo.(*reader).Rebuffer(0xc820089600)
+	/var/folders/yz/vttk_4956lb816_1pbq9_dnr0000gn/T/go-fuzz-build650380541/src/github.com/rasky/go-lzo/decompress.go:45 +0x272 fp=0xc82003bd10 sp=0xc82003bc28
+github.com/rasky/go-lzo.(*reader).ReadAppend(0xc820089600, 0xc82003be40, 0x3)
+	/var/folders/yz/vttk_4956lb816_1pbq9_dnr0000gn/T/go-fuzz-build650380541/src/github.com/rasky/go-lzo/decompress.go:77 +0x337 fp=0xc82003bda8 sp=0xc82003bd10
+github.com/rasky/go-lzo.Decompress1X(0x1a1078, 0xc8200581c0, 0x0, 0x0, 0x133b08, 0x0, 0x0, 0x0, 0x0)
+	/var/folders/yz/vttk_4956lb816_1pbq9_dnr0000gn/T/go-fuzz-build650380541/src/github.com/rasky/go-lzo/decompress.go:187 +0x922 fp=0xc82003be20 sp=0xc82003bda8
+github.com/rasky/go-lzo.Fuzz(0x1f1000, 0x1, 0x200000, 0x3)
+	/var/folders/yz/vttk_4956lb816_1pbq9_dnr0000gn/T/go-fuzz-build650380541/src/github.com/rasky/go-lzo/fuzz.go:8 +0x140 fp=0xc82003bea0 sp=0xc82003be20
+github.com/dvyukov/go-fuzz/go-fuzz-dep.Main(0xc8d60)
+	/Users/pmezard/dev/go/dev/src/github.com/dvyukov/go-fuzz/go-fuzz-dep/main.go:47 +0x14c fp=0xc82003bf40 sp=0xc82003bea0
+main.main()
+	/var/folders/yz/vttk_4956lb816_1pbq9_dnr0000gn/T/go-fuzz-build650380541/src/go-fuzz-main/main.go:10 +0x23 fp=0xc82003bf50 sp=0xc82003bf40
+runtime.main()
+	/var/folders/yz/vttk_4956lb816_1pbq9_dnr0000gn/T/go-fuzz-build650380541/src/runtime/proc.go:128 +0x2b0 fp=0xc82003bfa0 sp=0xc82003bf50
+runtime.goexit()
+	/var/folders/yz/vttk_4956lb816_1pbq9_dnr0000gn/T/go-fuzz-build650380541/src/runtime/asm_amd64.s:1805 +0x1 fp=0xc82003bfa8 sp=0xc82003bfa0
+
+rax    0x1000
+rbx    0x20
+rcx    0x0
+rdx    0xc820089618
+rdi    0xc82003bc68
+rsi    0xc82003bc68
+rbp    0x1000
+rsp    0xc82003bc28
+r8     0x0
+r9     0x0
+r10    0x0
+r11    0x0
+r12    0x208
+r13    0xc6e20
+r14    0xc
+r15    0x8
+rip    0x51822
+rflags 0x206
+cs     0x2b
+fs     0x0
+gs     0x0
+exit status 2
